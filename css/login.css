@@ -19,7 +19,8 @@
 .layadmin-user-login-main {
     width:375px;
     margin:0 auto;
-    box-sizing:border-box
+    box-sizing:border-box;
+    margin-top:150px;
 }
 .layadmin-user-login-box {
     padding:20px

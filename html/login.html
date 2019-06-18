@@ -8,19 +8,21 @@
     <link rel="stylesheet" href="../css/layim.css" media="all">
     <link rel="stylesheet" href="../css/login.css" media="all">
     <script src="../scripts/layui/layui.js?t=20181101-1"></script>
+
+    <script src="../scripts/md5.js"></script>
     <title>管理平台</title>
 </head>
 <body layadmin-themealias="default" class="layui-layout-body">
 <div id="LAY_app" class="layadmin-tabspage-none">
     <div class="layadmin-user-login-main">
         <div class="layadmin-user-login-box layadmin-user-login-header">
-            <h2>layuiAdmin</h2>
-            <p>layui 官方出品的单页面后台管理模板系统</p>
+            <h2>管理平台</h2>
+            <p>后台管理系统</p>
         </div>
         <div class="layadmin-user-login-box layadmin-user-login-body layui-form">
             <div class="layui-form-item">
                 <label class="layadmin-user-login-icon layui-icon layui-icon-username" for="LAY-user-login-username"></label>
-                <input type="text" name="username" id="LAY-user-login-username" lay-verify="required" placeholder="用户名" class="layui-input">
+                <input type="text" name="username" id="LAY-user-login-username" lay-verify="required" placeholder="用户名" onblur="usernameOnblur(this)" class="layui-input">
             </div>
             <div class="layui-form-item">
                 <label class="layadmin-user-login-icon layui-icon layui-icon-password" for="LAY-user-login-password"></label>
@@ -40,11 +42,11 @@
                 </div>
             </div>
             <div class="layui-form-item" style="margin-bottom: 20px;">
-                <input type="checkbox" name="remember" lay-skin="primary" title="记住密码"><div class="layui-unselect layui-form-checkbox" lay-skin="primary"><span>记住密码</span><i class="layui-icon layui-icon-ok"></i></div>
+                <input type="checkbox" name="remember" lay-filter="remenber"  lay-skin="primary" title="记住密码"><div class="layui-unselect layui-form-checkbox" lay-skin="primary"><span>记住密码</span><i class="layui-icon layui-icon-ok"></i></div>
                 <a lay-href="/user/forget" class="layadmin-user-jump-change layadmin-link" style="margin-top: 7px;">忘记密码？</a>
             </div>
             <div class="layui-form-item">
-                <button class="layui-btn layui-btn-fluid" lay-submit="" lay-filter="LAY-user-login-submit">登 入</button>
+                <button class="layui-btn layui-btn-fluid" lay-submit="" lay-filter="login">登 入</button>
             </div>
         </div>
     </div>
@@ -60,44 +62,48 @@
     </div>
 </div>
 <script>
-    // layui.use(['admin', 'form', 'user'], function(){
-    //     var $ = layui.$
-    //             ,setter = layui.setter
-    //             ,admin = layui.admin
-    //             ,form = layui.form
-    //             ,router = layui.router()
-    //             ,search = router.search;
-    //
-    //     form.render();
-    //
-    //     //提交
-    //
-    //
-    //     //实际使用时记得删除该代码
-    //     layer.msg('为了方便演示，用户名密码可随意输入', {
-    //         offset: '15px'
-    //         ,icon: 1
-    //     });
-    //
-    // });
-</script>
-
-<script>
+    var cookie,$;
+    var md5flag = true;
+    function usernameOnblur (dom) {
+        var name = dom.value;
+        var prepass = cookie.getCookie("golay_"+name);
+        if(prepass != null){
+            $("#LAY-user-login-password").val(prepass);
+            md5flag = false;
+        }else{
+            md5flag = true;
+        }
+    };
     layui.config({
         base: '../js/' //指定 layuiAdmin 项目路径
         ,version: '1.2.1'
-    }).use('index', function(){
-        var layer = layui.layer, admin = layui.admin;
-        // layer.ready(function(){
-        //     admin.popup({
-        //         content: '单页面专业版默认未开启“多标签”功能，实际运用时，你可以自定义是否开启'
-        //         ,area: '300px'
-        //         ,btnAlign: 'c'
-        //         ,shade: false
-        //     });
-        // });
+    }).use(['index','cookie','form'], function(){
+        var form = layui.form;
+        $ = layui.$;
+        cookie = layui.cookie;
+        var layer = layui.layer;
+        form.render();
+        //提交
+        form.on('submit(login)',function(data){
+            field = data.field;
+            var str = field.username + "yes,we can";
+            var pass = md5flag?hex_md5(field.password):field.password;
+            //记住密码
+            var remember = $("input[name='remember']").prop("checked");
+            if(remember){
+                cookie.setCookie('golay_'+field.username,pass,'h1');
+            }else{
+                cookie.delCookie('golay_'+field.username);
+            }
+            layer.msg(remember, {
+                offset: '15px'
+                ,icon: 1
+            });
+
+        });
     });
 </script>
+
 
 </body>
 </html>

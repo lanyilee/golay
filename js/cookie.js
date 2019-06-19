@@ -9,7 +9,6 @@ layui.define(function (exports) {
         },
         getsec:function(str)
         {
-            alert(str);
             var str1=str.substring(1,str.length)*1;
             var str2=str.substring(0,1);
             if (str2=="s")
@@ -37,7 +36,7 @@ layui.define(function (exports) {
         {
             var exp = new Date();
             exp.setTime(exp.getTime() - 1);
-            var cval=getCookie(name);
+            var cval=obj.getCookie(name);
             if(cval!=null)
                 document.cookie= name + "="+cval+";expires="+exp.toGMTString();
         }

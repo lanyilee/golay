@@ -89,11 +89,10 @@
             var str = field.username + "yes,we can";
             var pass = md5flag?hex_md5(field.password):field.password;
             field.password = pass;
-            field.route = "Login";
             //post
             $.ajax({
                 type: "POST",
-                url: "/Golay",
+                url: "/Login.do",
                 data: field,
                 dataType: "json",
                 success: function (data, textStatus) {

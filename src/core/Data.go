@@ -19,9 +19,9 @@ type ResponseData struct {
 	StatusCode int
 	errors     json.RawMessage `json:"errors"`
 }
-type PastData struct {
-	Date  string
-	Title string
+type RequestData struct {
+	Route string
+	Data  string
 }
 
 type RmrbPage struct {

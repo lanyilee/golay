@@ -99,6 +99,9 @@
                     if (data == null) {
                         layer.msg("登录失败");
                         return;
+                    }else{
+
+                        layer.msg(data.Message)
                     }
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {

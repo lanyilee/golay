@@ -3,6 +3,7 @@ package main
 import (
 	"core"
 	"encoding/json"
+	"github.com/satori/go.uuid"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -73,7 +74,16 @@ func Login(response http.ResponseWriter, req *http.Request) {
 				if err != nil {
 					core.Logger(err.Error())
 				}
-				core.Logger("缓存登录")
+				if resb.StatusCode == 200 {
+					core.Logger("缓存登录成功")
+					//生成token
+					token, err := uuid.NewV4()
+					if err != nil {
+						log.Panic(err)
+					}
+					resb.Data = token.String()
+				}
+
 				response.Write(resbBytes)
 				return
 			}
@@ -84,10 +94,21 @@ func Login(response http.ResponseWriter, req *http.Request) {
 		if err != nil {
 			log.Panic(err)
 		}
+		//生成token
+		token, err := uuid.NewV4()
+		if err != nil {
+			log.Panic(err)
+		}
+		resb.Data = token.String()
+		err = core.SaveToken(redisCli, token.String(), username)
+		if err != nil {
+			log.Panic(err)
+		}
 		resbBytes, err := json.Marshal(&resb)
 		if err != nil {
 			core.Logger(err.Error())
 		}
+
 		core.Logger("数据库登录")
 		response.Write(resbBytes)
 	}

@@ -66,6 +66,14 @@ func CheckUserInRedis(cli *redis.Client, username string, password string) (resp
 	return resp, nil
 }
 
+func SaveToken(cli *redis.Client, token string, username string) error {
+	_, err := cli.Set(token, username, time.Minute*20).Result()
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
 func GetUserByName(db *xorm.Engine, username string) (TUser, error) {
 	tUser := TUser{}
 	_, err := db.Where("username='" + username + "'").Get(&tUser)

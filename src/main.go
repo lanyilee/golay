@@ -1,6 +1,8 @@
 package main
 
 import (
+	"core"
+	"encoding/json"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -55,8 +57,39 @@ func Login(response http.ResponseWriter, req *http.Request) {
 				password = field[1]
 			}
 		}
-		println(username + password)
-
+		config, err := core.ReadConfig("./config.conf")
+		if err != nil {
+			log.Panic(err)
+		}
+		//缓存查询
+		redisCli, err := core.NewClientZero(config)
+		if err != nil {
+			core.Logger(err.Error())
+		}
+		if redisCli != nil {
+			resb, err := core.CheckUserInRedis(redisCli, username, password)
+			if err == nil && (resb.StatusCode == 200 || resb.StatusCode == 401) {
+				resbBytes, err := json.Marshal(&resb)
+				if err != nil {
+					core.Logger(err.Error())
+				}
+				core.Logger("缓存登录")
+				response.Write(resbBytes)
+				return
+			}
+		}
+		db := core.CreatEngine(config)
+		//数据库查询
+		resb, err := core.Login(db, username, password, redisCli)
+		if err != nil {
+			log.Panic(err)
+		}
+		resbBytes, err := json.Marshal(&resb)
+		if err != nil {
+			core.Logger(err.Error())
+		}
+		core.Logger("数据库登录")
+		response.Write(resbBytes)
 	}
 	return
 }

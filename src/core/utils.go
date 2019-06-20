@@ -17,10 +17,6 @@ import (
 
 type Config struct {
 	//配置文件要通过tag来指定配置文件中的名称
-	//api
-	ApiAddress string `ini:"ApiAddress"`
-	Account    string `ini:"Account"`
-	ClientID   string `ini:"ClientID"`
 	//MySql
 	MysqlDataSource string `ini:"MysqlDataSource"`
 	//

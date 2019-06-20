@@ -2,6 +2,7 @@ package core
 
 import (
 	"encoding/json"
+	"time"
 )
 
 type TRmrbTemplate struct {
@@ -11,17 +12,23 @@ type TRmrbTemplate struct {
 	Name       string `xorm:"Varchar(255)"`
 }
 
-//属性首字母大写
-type ResponseData struct {
-	Data       json.RawMessage `json:"Data"`
-	Message    string
-	More       bool
-	StatusCode int
-	errors     json.RawMessage `json:"errors"`
+//用户表
+type TUser struct {
+	Id            int       `xorm:"not null autoincr pk Int(11)"`
+	Username      string    `xorm:"Varchar(255)"`
+	Password      string    `xorm:"Varchar(25)"`
+	Company       string    `xorm:"Varchar(255)"`
+	Email         string    `xorm:"Varchar(255)"`
+	Realname      string    `xorm:"Varchar(255)"`
+	Lastlogintime time.Time `xorm:"datetime"`
+	Salt          string    `xorm:"Varchar(255)"`
 }
-type RequestData struct {
-	Route string
-	Data  string
+
+//返回
+type ResponseBase struct {
+	Data       interface{}
+	Message    string
+	StatusCode int
 }
 
 type RmrbPage struct {

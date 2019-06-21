@@ -41,6 +41,18 @@ func Golay(response http.ResponseWriter, req *http.Request) {
 
 //login
 func Login(response http.ResponseWriter, req *http.Request) {
+	config, err := core.ReadConfig("./config.conf")
+	if err != nil {
+		log.Panic(err)
+	}
+	redisCli, err := core.NewClientZero(config)
+	if err != nil {
+		core.Logger(err.Error())
+	}
+	//header
+	//reqToken:=req.Header.Get("golay_token")
+	//core.GetUserByToken()
+	//body
 	dataByte, err := ioutil.ReadAll(req.Body)
 	if err != nil {
 		return
@@ -58,15 +70,7 @@ func Login(response http.ResponseWriter, req *http.Request) {
 				password = field[1]
 			}
 		}
-		config, err := core.ReadConfig("./config.conf")
-		if err != nil {
-			log.Panic(err)
-		}
 		//缓存查询
-		redisCli, err := core.NewClientZero(config)
-		if err != nil {
-			core.Logger(err.Error())
-		}
 		if redisCli != nil {
 			resb, err := core.CheckUserInRedis(redisCli, username, password)
 			if err == nil && (resb.StatusCode == 200 || resb.StatusCode == 401) {
@@ -82,8 +86,11 @@ func Login(response http.ResponseWriter, req *http.Request) {
 						log.Panic(err)
 					}
 					resb.Data = token.String()
+					resbBytes, err = json.Marshal(&resb)
+					if err != nil {
+						core.Logger(err.Error())
+					}
 				}
-
 				response.Write(resbBytes)
 				return
 			}
@@ -108,7 +115,6 @@ func Login(response http.ResponseWriter, req *http.Request) {
 		if err != nil {
 			core.Logger(err.Error())
 		}
-
 		core.Logger("数据库登录")
 		response.Write(resbBytes)
 	}

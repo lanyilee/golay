@@ -63,22 +63,17 @@
 </div>
 <script>
     var cookie,$;
-    var md5flag = true;
     function usernameOnblur (dom) {
         var name = dom.value;
         var prepass = cookie.getCookie("golay_"+name);
-        if(prepass != null){
-            $("#LAY-user-login-password").val(prepass);
-            md5flag = false;
-        }else{
-            md5flag = true;
-        }
+        $("#LAY-user-login-password").val(prepass);
     };
     layui.config({
         base: '../js/' //指定 layuiAdmin 项目路径
         ,version: '1.2.1'
-    }).use(['index','cookie','form'], function(){
-        var form = layui.form;
+    }).use(['index','cookie','form','JqUtils'], function(){
+        var form = layui.form,
+                JqUtils = layui.JqUtils;
         $ = layui.$;
         cookie = layui.cookie;
         var layer = layui.layer;
@@ -86,8 +81,7 @@
         //提交
         form.on('submit(login)',function(data){
             field = data.field;
-            var str = field.username + "yes,we can";
-            var pass = md5flag?hex_md5(field.password):field.password;
+            var pass = hex_md5(field.password);
             field.password = pass;
             //post
             $.ajax({
@@ -100,8 +94,21 @@
                         layer.msg("登录失败");
                         return;
                     }else{
-
-                        layer.msg(data.Message)
+                        if(data.StatusCode==200){
+                            cookie.setCookie('golay_token',data.Data,'s600');
+                            var remember = $("input[name='remember']").prop("checked");
+                            if(remember)
+                                cookie.setCookie('golay_'+field.username,field.password,'h10');
+                            else
+                                cookie.delCookie('golay_'+field.username);
+                            layer.msg("登录成功", {
+                                offset: '15px'
+                                ,icon: 1
+                            });
+                            location.href= JqUtils.getCurPageRelativePathPrefix + "index.html";
+                        }else{
+                            layer.msg(data.Message);
+                        }
                     }
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -111,17 +118,7 @@
 
                 }
             });
-            //记住密码
-            var remember = $("input[name='remember']").prop("checked");
-            if(remember){
-                cookie.setCookie('golay_'+field.username,pass,'h10');
-            }else{
-                cookie.delCookie('golay_'+field.username);
-            }
-            layer.msg(remember, {
-                offset: '15px'
-                ,icon: 1
-            });
+
 
         });
     });

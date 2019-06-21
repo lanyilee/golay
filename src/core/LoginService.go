@@ -74,6 +74,26 @@ func SaveToken(cli *redis.Client, token string, username string) error {
 	return nil
 }
 
+func GetUserByToken(token string, cli *redis.Client) (*TUser, error) {
+	username, err := cli.Get(token).Result()
+	if err != nil {
+		return nil, err
+	}
+	if username != "" {
+		userStr, err := cli.Get(username).Result()
+		if err != nil {
+			return nil, err
+		}
+		userData := []byte(userStr)
+		tUser := &TUser{}
+		err = json.Unmarshal(userData, tUser)
+		if err != nil {
+			return tUser, err
+		}
+	}
+	return nil, nil
+}
+
 func GetUserByName(db *xorm.Engine, username string) (TUser, error) {
 	tUser := TUser{}
 	_, err := db.Where("username='" + username + "'").Get(&tUser)

@@ -71,9 +71,9 @@
     layui.config({
         base: '../js/' //指定 layuiAdmin 项目路径
         ,version: '1.2.1'
-    }).use(['index','cookie','form','JqUtils'], function(){
+    }).use(['index','cookie','form','jqUtils'], function(){
         var form = layui.form,
-                JqUtils = layui.JqUtils;
+                jqUtils = layui.jqUtils;
         $ = layui.$;
         cookie = layui.cookie;
         var layer = layui.layer;
@@ -96,16 +96,13 @@
                     }else{
                         if(data.StatusCode==200){
                             cookie.setCookie('golay_token',data.Data,'s600');
-                            var remember = $("input[name='remember']").prop("checked");
-                            if(remember)
-                                cookie.setCookie('golay_'+field.username,field.password,'h10');
-                            else
-                                cookie.delCookie('golay_'+field.username);
+
                             layer.msg("登录成功", {
                                 offset: '15px'
                                 ,icon: 1
                             });
-                            location.href= JqUtils.getCurPageRelativePathPrefix + "index.html";
+                            debugger
+                            location.href= jqUtils.getCurPageRelativePathPrefix() + "/html/index.html";
                         }else{
                             layer.msg(data.Message);
                         }
@@ -115,7 +112,12 @@
                     layer.msg("系统忙");
                 },
                 complete: function (XMLHttpRequest, textStatus) {
-
+                    var remember = $("input[name='remember']").prop("checked");
+                    var pass = $("#LAY-user-login-password").val();
+                    if(remember)
+                        cookie.setCookie('golay_'+field.username,pass,'h10');
+                    else
+                        cookie.delCookie('golay_'+field.username);
                 }
             });
 

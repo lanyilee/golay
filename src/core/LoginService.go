@@ -20,6 +20,7 @@ func Login(db *xorm.Engine, username string, password string, cli *redis.Client)
 	md5Pass := MD532(password + tUser.Salt)
 	if md5Pass != tUser.Password {
 		resp.Message = "密码输入有误，请重新输入"
+		Logger("错误密码：" + password)
 		resp.StatusCode = 401
 	} else {
 		resp.Message = "登录成功"

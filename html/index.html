@@ -3,13 +3,41 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>layout 后台大布局 - Layui</title>
-    <link rel="stylesheet" href="../src/css/layui.css">
+    <title>管理后台</title>
+    <link rel="stylesheet" href="../scripts/layui/css/layui.css">
+    <script src="../scripts/layui/layui.js?t=20181101-1"></script>
+    <script>
+        //JavaScript代码区域
+        layui.config({
+            base: '../js/' //指定 layuiAdmin 项目路径
+            ,version: '1.2.1'
+        }).use(['cookie','form','jqUtils','element'], function(){
+            var form = layui.form,
+                    element = layui.element,
+                    jqUtils = layui.jqUtils;
+            var $ = layui.$;
+            $("a").click(function (aData) {
+                if(aData.target.attributes["lay-href"]!=null){
+                    var targetHtml = aData.target.attributes["lay-href"].value;
+                    var targetUrl = jqUtils.getCurPageRelativePathPrefix()+ targetHtml;
+                    var appendHtml = jqUtils.GetHtml(targetUrl);
+                    $("#layBody").append(appendHtml);
+                }
+                else{
+                    return;
+                }
+            })
+        })
+        // layui.use('element', function(){
+        //     var element = layui.element;
+        //     var $ = layui.$;
+        // });
+    </script>
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header">
-        <div class="layui-logo">layui 后台布局</div>
+        <div class="layui-logo">后台布局</div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <ul class="layui-nav layui-layout-left">
             <li class="layui-nav-item"><a href="">控制台</a></li>
@@ -46,7 +74,7 @@
                 <li class="layui-nav-item layui-nav-itemed">
                     <a class="" href="javascript:;">所有商品</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">列表一</a></dd>
+                        <dd><a href="javascript:;" lay-href="/html/homepage.html">列表一</a></dd>
                         <dd><a href="javascript:;">列表二</a></dd>
                         <dd><a href="javascript:;">列表三</a></dd>
                         <dd><a href="">超链接</a></dd>
@@ -68,7 +96,8 @@
 
     <div class="layui-body">
         <!-- 内容主体区域 -->
-        <div style="padding: 15px;">内容主体区域</div>
+        <div style="padding: 15px;" id="layBody">
+        </div>
     </div>
 
     <div class="layui-footer">
@@ -76,13 +105,6 @@
         © layui.com - 底部固定区域
     </div>
 </div>
-<script src="../src/layui.js"></script>
-<script>
-    //JavaScript代码区域
-    layui.use('element', function(){
-        var element = layui.element;
 
-    });
-</script>
 </body>
 </html>

@@ -21,7 +21,7 @@
                     var targetHtml = aData.target.attributes["lay-href"].value;
                     var targetUrl = jqUtils.getCurPageRelativePathPrefix()+ targetHtml;
                     var appendHtml = jqUtils.GetHtml(targetUrl);
-                    $("#layBody").append(appendHtml);
+                    $("#layBody").html(appendHtml);
                 }
                 else{
                     return;
@@ -75,7 +75,7 @@
                     <a class="" href="javascript:;">所有商品</a>
                     <dl class="layui-nav-child">
                         <dd><a href="javascript:;" lay-href="/html/homepage.html">列表一</a></dd>
-                        <dd><a href="javascript:;">列表二</a></dd>
+                        <dd><a href="javascript:;" lay-href="/html/homepage2.html">列表二</a></dd>
                         <dd><a href="javascript:;">列表三</a></dd>
                         <dd><a href="">超链接</a></dd>
                     </dl>

@@ -24,6 +24,19 @@ layui.define(function(exports){
                 }
             });
             return returnHtml;
+        },
+        IsEnoughPrivilege:function(url){
+            $.ajax({
+                type: "post",
+                url: url,
+                dataType: "json",
+                success: function (data, textStatus) {
+                    debugger
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    layer.msg("你没有相关权限");
+                }
+            });
         }
     }
     exports('jqUtils',obj);

@@ -1,5 +1,6 @@
-layui.define(function(exports){
-    var $ = layui.$;
+layui.define(['cookie'],function(exports){
+    var $ = layui.$
+        ,cookie = layui.cookie;
     var obj ={
         //获取当前页面的相对路径前缀
         getCurPageRelativePathPrefix:function () {
@@ -26,17 +27,34 @@ layui.define(function(exports){
             return returnHtml;
         },
         IsEnoughPrivilege:function(url){
+            var flag = false;
             $.ajax({
                 type: "post",
-                url: url,
+                data: url,
+                async:false,
+                timeout:300000,
+                url: "/Privilege.do",
                 dataType: "json",
+                beforeSend:function(xhr){
+                    var golayToken = cookie.getCookie("golay_token");
+                    if(golayToken==null){
+                        return false;
+                    }
+                    xhr.setRequestHeader("GolayToken", golayToken);
+                },
                 success: function (data, textStatus) {
-                    debugger
+                    if(data!=null && data.StatusCode==200){
+                        flag = data.Data;
+                    }else{
+                        layer.msg(data.Message);
+                    }
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     layer.msg("你没有相关权限");
+                    return false;
                 }
             });
+            return flag;
         }
     }
     exports('jqUtils',obj);

@@ -96,12 +96,10 @@
                     }else{
                         if(data.StatusCode==200){
                             cookie.setCookie('golay_token',data.Data,'s600');
-
                             layer.msg("登录成功", {
                                 offset: '15px'
                                 ,icon: 1
                             });
-                            debugger
                             location.href= jqUtils.getCurPageRelativePathPrefix() + "/html/index.html";
                         }else{
                             layer.msg(data.Message);

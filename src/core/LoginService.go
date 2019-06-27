@@ -76,8 +76,12 @@ func SaveToken(cli *redis.Client, token string, username string) error {
 }
 
 func GetUserByToken(token string, cli *redis.Client) (*TUser, error) {
+	tUser := &TUser{}
 	username, err := cli.Get(token).Result()
 	if err != nil {
+		if err.Error() == "redis: nil" {
+			println(123)
+		}
 		return nil, err
 	}
 	if username != "" {
@@ -86,13 +90,13 @@ func GetUserByToken(token string, cli *redis.Client) (*TUser, error) {
 			return nil, err
 		}
 		userData := []byte(userStr)
-		tUser := &TUser{}
+
 		err = json.Unmarshal(userData, tUser)
 		if err != nil {
 			return tUser, err
 		}
 	}
-	return nil, nil
+	return tUser, nil
 }
 
 func GetUserByName(db *xorm.Engine, username string) (TUser, error) {

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"io/ioutil"
+	"controler"
 	"log"
 	"net/http"
 )
@@ -16,8 +16,8 @@ func main() {
 
 //路由转发
 func HandleRouter() {
-	handler := http.HandlerFunc(Golay)
-	http.Handle("/Golay.do", handler)
-	handler2 := http.HandlerFunc(Login)
-	http.Handle("/Login.do", handler2)
+
+	http.Handle("/Golay.do", controler.Golay())
+	http.Handle("/Login.do", controler.Login())
+	http.Handle("/Privilege.do", controler.Privilege())
 }

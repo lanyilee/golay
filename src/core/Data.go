@@ -16,7 +16,7 @@ type TRmrbTemplate struct {
 type TUser struct {
 	Id            int       `xorm:"not null autoincr pk Int(11)"`
 	Username      string    `xorm:"Varchar(255)"`
-	Password      string    `xorm:"Varchar(25)"`
+	Password      string    `xorm:"Varchar(255)"`
 	Company       string    `xorm:"Varchar(255)"`
 	Email         string    `xorm:"Varchar(255)"`
 	Realname      string    `xorm:"Varchar(255)"`

@@ -1,18 +1,13 @@
-<?xml version="1.0" encoding="GB18030"?>
-<!--id不能有重复，id规则根权限为1，全部为小写-->
-<!--type 0为普通权限，1为页面，2为页面中的元素-->
-<!-- 路径只能为小写-->
-<privilege>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--id涓嶈兘鏈夐噸澶嶏紝id瑙勫垯鏍规潈闄愪负1锛屽叏閮ㄤ负灏忓啓-->
+<!--type 0涓烘櫘閫氭潈闄愶紝1涓洪〉闈紝2涓洪〉闈腑鐨勫厓绱�-->
+<!-- 璺緞鍙兘涓哄皬鍐�-->
+<privileges>
   <id>1</id>
-  <name><![CDATA[投递平台]]></name>
-  <type>0</type>
-  <selector>
-  </selector>
-  <remarks>
-  </remarks>
+  <name><![CDATA[绠＄悊骞冲彴]]></name>
   <privilege>
     <id>794</id>
-    <name><![CDATA[客户管理]]></name>
+    <name><![CDATA[瀹㈡埛绠＄悊]]></name>
     <type>0</type>
     <selector>
     </selector>
@@ -20,7 +15,7 @@
     </remarks>
     <privilege>
       <id>2</id>
-      <name><![CDATA[客户信息]]></name>
+      <name><![CDATA[瀹㈡埛淇℃伅]]></name>
       <type>0</type>
       <selector>
       </selector>
@@ -28,7 +23,7 @@
       </remarks>
       <privilege>
         <id>8</id>
-        <name><![CDATA[客户查询]]></name>
+        <name><![CDATA[瀹㈡埛鏌ヨ]]></name>
         <type>0</type>
         <selector>
         </selector>
@@ -36,7 +31,7 @@
         </remarks>
         <privilege>
           <id>9</id>
-          <name><![CDATA[客户查询页面]]></name>
+          <name><![CDATA[瀹㈡埛鏌ヨ椤甸潰]]></name>
           <type>1</type>
           <selector>/configure/pages/company/companylist.aspx</selector>
           <remarks>
@@ -44,7 +39,7 @@
         </privilege>
         <privilege>
           <id>10</id>
-          <name><![CDATA[客户查询ASHX]]></name>
+          <name><![CDATA[瀹㈡埛鏌ヨASHX]]></name>
           <type>2</type>
           <selector>/configure/services/company/companylist.ashx</selector>
           <remarks>
@@ -54,7 +49,7 @@
       </privilege>
       <privilege>
         <id>11</id>
-        <name><![CDATA[客户新建]]></name>
+        <name><![CDATA[瀹㈡埛鏂板缓]]></name>
         <type>0</type>
         <selector>
         </selector>
@@ -62,7 +57,7 @@
         </remarks>
         <privilege>
           <id>12</id>
-          <name><![CDATA[客户新建页面]]></name>
+          <name><![CDATA[瀹㈡埛鏂板缓椤甸潰]]></name>
           <type>1</type>
           <selector>/configure/pages/company/addcompany.aspx</selector>
           <remarks>
@@ -70,7 +65,7 @@
         </privilege>
         <privilege>
           <id>13</id>
-          <name><![CDATA[客户新建ASHX]]></name>
+          <name><![CDATA[瀹㈡埛鏂板缓ASHX]]></name>
           <type>2</type>
           <selector>/configure/services/company/addcompany.ashx</selector>
           <remarks>
@@ -80,7 +75,7 @@
       </privilege>
       <privilege>
         <id>14</id>
-        <name><![CDATA[客户修改]]></name>
+        <name><![CDATA[瀹㈡埛淇敼]]></name>
         <type>0</type>
         <selector>
         </selector>
@@ -88,7 +83,7 @@
         </remarks>
         <privilege>
           <id>15</id>
-          <name><![CDATA[客户修改页面]]></name>
+          <name><![CDATA[瀹㈡埛淇敼椤甸潰]]></name>
           <type>1</type>
           <selector>/configure/pages/company/editcompany.aspx</selector>
           <remarks>
@@ -96,7 +91,7 @@
         </privilege>
         <privilege>
           <id>16</id>
-          <name><![CDATA[客户修改ASHX]]></name>
+          <name><![CDATA[瀹㈡埛淇敼ASHX]]></name>
           <type>2</type>
           <selector>/configure/services/company/editcompany.ashx</selector>
           <remarks>
@@ -105,7 +100,7 @@
         </privilege>
         <privilege>
           <id>17</id>
-          <name><![CDATA[客户查看ASHX]]></name>
+          <name><![CDATA[瀹㈡埛鏌ョ湅ASHX]]></name>
           <type>2</type>
           <selector>/configure/services/company/viewcompany.ashx</selector>
           <remarks>
@@ -115,7 +110,7 @@
       </privilege>
       <privilege>
         <id>18</id>
-        <name><![CDATA[客户查看]]></name>
+        <name><![CDATA[瀹㈡埛鏌ョ湅]]></name>
         <type>0</type>
         <selector>
         </selector>
@@ -123,7 +118,7 @@
         </remarks>
         <privilege>
           <id>19</id>
-          <name><![CDATA[客户查看页面]]></name>
+          <name><![CDATA[瀹㈡埛鏌ョ湅椤甸潰]]></name>
           <type>1</type>
           <selector>/configure/pages/company/viewcompany.aspx</selector>
           <remarks>
@@ -131,7 +126,7 @@
         </privilege>
         <privilege>
           <id>20</id>
-          <name><![CDATA[客户查看ASHX]]></name>
+          <name><![CDATA[瀹㈡埛鏌ョ湅ASHX]]></name>
           <type>2</type>
           <selector>/configure/services/company/viewcompany.ashx</selector>
           <remarks>
@@ -141,7 +136,7 @@
       </privilege>
       <privilege>
         <id>21</id>
-        <name><![CDATA[客户删除]]></name>
+        <name><![CDATA[瀹㈡埛鍒犻櫎]]></name>
         <type>0</type>
         <selector>
         </selector>
@@ -149,267 +144,9 @@
         </remarks>
         <privilege>
           <id>22</id>
-          <name><![CDATA[客户删除]]></name>
+          <name><![CDATA[瀹㈡埛鍒犻櫎]]></name>
           <type>1</type>
           <selector>/configure/services/company/deletecompany.ashx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-      </privilege>
-      <privilege>
-        <id>23</id>
-        <name><![CDATA[客户禁用/启用]]></name>
-        <type>0</type>
-        <selector>
-        </selector>
-        <remarks>
-        </remarks>
-        <privilege>
-          <id>25</id>
-          <name><![CDATA[客户禁用]]></name>
-          <type>1</type>
-          <selector>/configure/services/company/lockcompany.ashx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-        <privilege>
-          <id>26</id>
-          <name><![CDATA[客户启用]]></name>
-          <type>1</type>
-          <selector>/configure/services/company/unlockcompany.ashx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-      </privilege>
-      <privilege>
-        <id>623</id>
-        <name><![CDATA[客户导出]]></name>
-        <type>0</type>
-        <selector>
-        </selector>
-        <remarks>
-        </remarks>
-        <privilege>
-          <id>624</id>
-          <name><![CDATA[客户导出]]></name>
-          <type>1</type>
-          <selector>/configure/services/company/companyexport.ashx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-      </privilege>
-    </privilege>
-    <privilege>
-      <id>27</id>
-      <name><![CDATA[发件人信息]]></name>
-      <type>0</type>
-      <selector>
-      </selector>
-      <remarks>
-      </remarks>
-      <privilege>
-        <id>29</id>
-        <name><![CDATA[发件人查询]]></name>
-        <type>0</type>
-        <selector>
-        </selector>
-        <remarks>
-        </remarks>
-        <privilege>
-          <id>30</id>
-          <name><![CDATA[发件人查询页面]]></name>
-          <type>1</type>
-          <selector>/configure/pages/mailfrom/mailfromlist.aspx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-        <privilege>
-          <id>31</id>
-          <name><![CDATA[发件人查询ASHX]]></name>
-          <type>2</type>
-          <selector>/configure/services/mailfrom/mailfromlist.ashx</selector>
-          <remarks>
-            30
-          </remarks>
-        </privilege>
-      </privilege>
-      <privilege>
-        <id>32</id>
-        <name><![CDATA[发件人新建]]></name>
-        <type>0</type>
-        <selector>
-        </selector>
-        <remarks>
-        </remarks>
-        <privilege>
-          <id>33</id>
-          <name><![CDATA[发件人新建页面]]></name>
-          <type>1</type>
-          <selector>/configure/pages/mailfrom/addmailfrom.aspx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-        <privilege>
-          <id>34</id>
-          <name><![CDATA[发件人新建ASHX]]></name>
-          <type>2</type>
-          <selector>/configure/services/mailfrom/addmailfrom.ashx</selector>
-          <remarks>
-            33
-          </remarks>
-        </privilege>
-        <privilege>
-          <id>1135</id>
-          <name><![CDATA[获取发送方类型ASHX]]></name>
-          <type>2</type>
-          <selector>/configure/services/mailfrom/getsendertype.ashx</selector>
-          <remarks>
-            33
-          </remarks>
-        </privilege>
-        <privilege>
-          <id>1136</id>
-          <name><![CDATA[获取发送方子类型ASHX]]></name>
-          <type>2</type>
-          <selector>/configure/services/mailfrom/getsubsendertype.ashx</selector>
-          <remarks>
-            33
-          </remarks>
-        </privilege>
-      </privilege>
-      <privilege>
-        <id>35</id>
-        <name><![CDATA[发件人修改]]></name>
-        <type>0</type>
-        <selector>
-        </selector>
-        <remarks>
-        </remarks>
-        <privilege>
-          <id>36</id>
-          <name><![CDATA[发件人修改页面]]></name>
-          <type>1</type>
-          <selector>/configure/pages/mailfrom/editmailfrom.aspx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-        <privilege>
-          <id>37</id>
-          <name><![CDATA[发件人修改ASHX]]></name>
-          <type>2</type>
-          <selector>/configure/services/mailfrom/editmailfrom.ashx</selector>
-          <remarks>
-            36
-          </remarks>
-        </privilege>
-        <privilege>
-          <id>38</id>
-          <name><![CDATA[发件人查看ASHX]]></name>
-          <type>2</type>
-          <selector>/configure/services/mailfrom/viewmailfrom.ashx</selector>
-          <remarks>
-            36
-          </remarks>
-        </privilege>
-      </privilege>
-      <privilege>
-        <id>39</id>
-        <name><![CDATA[发件人查看]]></name>
-        <type>0</type>
-        <selector>
-        </selector>
-        <remarks>
-        </remarks>
-        <privilege>
-          <id>40</id>
-          <name><![CDATA[发件人查看页面]]></name>
-          <type>1</type>
-          <selector>/configure/pages/mailfrom/viewmailfrom.aspx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-        <privilege>
-          <id>41</id>
-          <name><![CDATA[发件人查看ASHX]]></name>
-          <type>2</type>
-          <selector>/configure/services/mailfrom/viewmailfrom.ashx</selector>
-          <remarks>
-            40
-          </remarks>
-        </privilege>
-      </privilege>
-      <privilege>
-        <id>42</id>
-        <name><![CDATA[发件人删除]]></name>
-        <type>0</type>
-        <selector>
-        </selector>
-        <remarks>
-        </remarks>
-        <privilege>
-          <id>43</id>
-          <name><![CDATA[发件人删除]]></name>
-          <type>1</type>
-          <selector>/configure/services/mailfrom/deletemailfrom.ashx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-      </privilege>
-      <privilege>
-        <id>44</id>
-        <name><![CDATA[发件人启用/禁用]]></name>
-        <type>0</type>
-        <selector>
-        </selector>
-        <remarks>
-        </remarks>
-        <privilege>
-          <id>45</id>
-          <name><![CDATA[发件人禁用]]></name>
-          <type>1</type>
-          <selector>/configure/services/mailfrom/lockmailfrom.ashx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-        <privilege>
-          <id>46</id>
-          <name><![CDATA[发件人启用]]></name>
-          <type>1</type>
-          <selector>/configure/services/mailfrom/unlockmailfrom.ashx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-      </privilege>
-      <privilege>
-        <id>625</id>
-        <name><![CDATA[发件人导出]]></name>
-        <type>0</type>
-        <selector>
-        </selector>
-        <remarks>
-        </remarks>
-        <privilege>
-          <id>626</id>
-          <name><![CDATA[发件人导出]]></name>
-          <type>1</type>
-          <selector>/configure/services/mailfrom/mailfromexport.ashx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-      </privilege>
-      <privilege>
-        <id>1037</id>
-        <name><![CDATA[发件人导入]]></name>
-        <type>0</type>
-        <selector>
-        </selector>
-        <remarks>
-        </remarks>
-        <privilege>
-          <id>1038</id>
-          <name><![CDATA[发件人导入页面]]></name>
-          <type>1</type>
-          <selector>/configure/pages/mailfrom/importmailfrom.aspx</selector>
           <remarks>
           </remarks>
         </privilege>
@@ -419,7 +156,7 @@
 
   <privilege>
     <id>266</id>
-    <name><![CDATA[系统管理]]></name>
+    <name><![CDATA[绯荤粺绠＄悊]]></name>
     <type>0</type>
     <selector>
     </selector>
@@ -427,56 +164,15 @@
     </remarks>
     <privilege>
       <id>299</id>
-      <name><![CDATA[账号管理]]></name>
+      <name><![CDATA[璐﹀彿绠＄悊]]></name>
       <type>0</type>
       <selector>
       </selector>
       <remarks>
       </remarks>
-      <!--<privilege>
-        <id>300</id>
-        <name><![CDATA[业务分类列表]]></name>
-        <type>1</type>
-        <selector>/services/businesstype/businesstypegetlist.ashx</selector>
-        <remarks>
-        </remarks>
-      </privilege>
-      <privilege>
-        <id>301</id>
-        <name><![CDATA[权限组列表]]></name>
-        <type>1</type>
-        <selector>/services/common/prigroupgetlist.ashx</selector>
-        <remarks>
-        </remarks>
-      </privilege>-->
-      <privilege>
-        <id>302</id>
-        <name><![CDATA[账号数据权限]]></name>
-        <type>0</type>
-        <selector>
-        </selector>
-        <remarks>
-        </remarks>
-        <privilege>
-          <id>303</id>
-          <name><![CDATA[账号获取数据权限]]></name>
-          <type>1</type>
-          <selector>/configure/services/user/getallcompanylist.ashx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-        <privilege>
-          <id>304</id>
-          <name><![CDATA[账号绑定数据权限]]></name>
-          <type>1</type>
-          <selector>/configure/services/user/bindcompany.ashx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-      </privilege>
       <privilege>
         <id>305</id>
-        <name><![CDATA[账号管理查询]]></name>
+        <name><![CDATA[璐﹀彿绠＄悊鏌ヨ]]></name>
         <type>0</type>
         <selector>
         </selector>
@@ -484,7 +180,7 @@
         </remarks>
         <privilege>
           <id>306</id>
-          <name><![CDATA[账号管理查询页面]]></name>
+          <name><![CDATA[璐﹀彿绠＄悊鏌ヨ椤甸潰]]></name>
           <type>1</type>
           <selector>/configure/pages/user/userlist.aspx</selector>
           <remarks>
@@ -492,7 +188,7 @@
         </privilege>
         <privilege>
           <id>307</id>
-          <name><![CDATA[账号管理查询页面ASHX]]></name>
+          <name><![CDATA[璐﹀彿绠＄悊鏌ヨ椤甸潰ASHX]]></name>
           <type>2</type>
           <selector>/configure/services/user/userlist.ashx</selector>
           <remarks>
@@ -502,7 +198,7 @@
       </privilege>
       <privilege>
         <id>308</id>
-        <name><![CDATA[账号新建]]></name>
+        <name><![CDATA[璐﹀彿鏂板缓]]></name>
         <type>0</type>
         <selector>
         </selector>
@@ -510,7 +206,7 @@
         </remarks>
         <privilege>
           <id>309</id>
-          <name><![CDATA[账号新建页面]]></name>
+          <name><![CDATA[璐﹀彿鏂板缓椤甸潰]]></name>
           <type>1</type>
           <selector>/configure/pages/user/adduser.aspx</selector>
           <remarks>
@@ -518,7 +214,7 @@
         </privilege>
         <privilege>
           <id>310</id>
-          <name><![CDATA[账号新建ASHX]]></name>
+          <name><![CDATA[璐﹀彿鏂板缓ASHX]]></name>
           <type>2</type>
           <selector>/configure/services/user/adduser.ashx</selector>
           <remarks>
@@ -528,7 +224,7 @@
       </privilege>
       <privilege>
         <id>311</id>
-        <name><![CDATA[账号修改]]></name>
+        <name><![CDATA[璐﹀彿淇敼]]></name>
         <type>0</type>
         <selector>
         </selector>
@@ -536,7 +232,7 @@
         </remarks>
         <privilege>
           <id>312</id>
-          <name><![CDATA[账号修改页面]]></name>
+          <name><![CDATA[璐﹀彿淇敼椤甸潰]]></name>
           <type>1</type>
           <selector>/configure/pages/user/edituser.aspx</selector>
           <remarks>
@@ -544,7 +240,7 @@
         </privilege>
         <privilege>
           <id>313</id>
-          <name><![CDATA[账号修改ASHX]]></name>
+          <name><![CDATA[璐﹀彿淇敼ASHX]]></name>
           <type>2</type>
           <selector>/configure/services/user/edituser.ashx</selector>
           <remarks>
@@ -553,7 +249,7 @@
         </privilege>
         <privilege>
           <id>314</id>
-          <name><![CDATA[账号查看ASHX]]></name>
+          <name><![CDATA[璐﹀彿鏌ョ湅ASHX]]></name>
           <type>2</type>
           <selector>/configure/services/user/viewuser.ashx</selector>
           <remarks>
@@ -563,7 +259,7 @@
       </privilege>
       <privilege>
         <id>315</id>
-        <name><![CDATA[账号查看]]></name>
+        <name><![CDATA[璐﹀彿鏌ョ湅]]></name>
         <type>0</type>
         <selector>
         </selector>
@@ -571,7 +267,7 @@
         </remarks>
         <privilege>
           <id>316</id>
-          <name><![CDATA[账号查看页面]]></name>
+          <name><![CDATA[璐﹀彿鏌ョ湅椤甸潰]]></name>
           <type>1</type>
           <selector>/configure/pages/user/viewuser.aspx</selector>
           <remarks>
@@ -579,7 +275,7 @@
         </privilege>
         <privilege>
           <id>317</id>
-          <name><![CDATA[账号查看ASHX]]></name>
+          <name><![CDATA[璐﹀彿鏌ョ湅ASHX]]></name>
           <type>2</type>
           <selector>/configure/services/user/viewuser.ashx</selector>
           <remarks>
@@ -589,7 +285,7 @@
       </privilege>
       <privilege>
         <id>318</id>
-        <name><![CDATA[账号删除]]></name>
+        <name><![CDATA[璐﹀彿鍒犻櫎]]></name>
         <type>0</type>
         <selector>
         </selector>
@@ -597,7 +293,7 @@
         </remarks>
         <privilege>
           <id>319</id>
-          <name><![CDATA[账号删除]]></name>
+          <name><![CDATA[璐﹀彿鍒犻櫎]]></name>
           <type>1</type>
           <selector>/configure/services/user/deleteuser.ashx</selector>
           <remarks>
@@ -605,7 +301,7 @@
         </privilege>
         <privilege>
           <id>320</id>
-          <name><![CDATA[账号全选删除]]></name>
+          <name><![CDATA[璐﹀彿鍏ㄩ�夊垹闄]></name>
           <type>1</type>
           <selector>/configure/services/user/deletealluser.ashx</selector>
           <remarks>
@@ -615,7 +311,7 @@
     </privilege>
     <privilege>
       <id>267</id>
-      <name><![CDATA[权限管理]]></name>
+      <name><![CDATA[鏉冮檺绠＄悊]]></name>
       <type>0</type>
       <selector>
       </selector>
@@ -623,7 +319,7 @@
       </remarks>
       <privilege>
         <id>286</id>
-        <name><![CDATA[权限管理]]></name>
+        <name><![CDATA[鏉冮檺绠＄悊]]></name>
         <type>0</type>
         <selector>
         </selector>
@@ -631,7 +327,7 @@
         </remarks>
         <privilege>
           <id>287</id>
-          <name><![CDATA[权限查看]]></name>
+          <name><![CDATA[鏉冮檺鏌ョ湅]]></name>
           <type>1</type>
           <selector>/configure/pages/privileges/privilege.aspx</selector>
           <remarks>
@@ -639,7 +335,7 @@
         </privilege>
         <privilege>
           <id>288</id>
-          <name><![CDATA[权限查看ASHX]]></name>
+          <name><![CDATA[鏉冮檺鏌ョ湅ASHX]]></name>
           <type>2</type>
           <selector>/configure/services/privileges/privilegelist.ashx</selector>
           <remarks>
@@ -648,7 +344,7 @@
         </privilege>
         <privilege>
           <id>1037</id>
-          <name><![CDATA[子系统查看ASHX]]></name>
+          <name><![CDATA[瀛愮郴缁熸煡鐪婣SHX]]></name>
           <type>2</type>
           <selector>/configure/services/privileges/systemlist.ashx</selector>
           <remarks>
@@ -657,7 +353,7 @@
         </privilege>
         <privilege>
           <id>1038</id>
-          <name><![CDATA[子系统权限查看]]></name>
+          <name><![CDATA[瀛愮郴缁熸潈闄愭煡鐪媇]></name>
           <type>2</type>
           <selector>/configure/pages/privileges/subprivilege.aspx</selector>
           <remarks>
@@ -666,7 +362,7 @@
         </privilege>
         <privilege>
           <id>1041</id>
-          <name><![CDATA[广告子系统权限查看]]></name>
+          <name><![CDATA[骞垮憡瀛愮郴缁熸潈闄愭煡鐪媇]></name>
           <type>2</type>
           <selector>/configure/pages/privileges/subadprivilege.aspx</selector>
           <remarks>
@@ -676,7 +372,7 @@
       </privilege>
       <privilege>
         <id>268</id>
-        <name><![CDATA[权限组的管理]]></name>
+        <name><![CDATA[鏉冮檺缁勭殑绠＄悊]]></name>
         <type>0</type>
         <selector>
         </selector>
@@ -684,7 +380,7 @@
         </remarks>
         <privilege>
           <id>269</id>
-          <name><![CDATA[权限组搜索]]></name>
+          <name><![CDATA[鏉冮檺缁勬悳绱]></name>
           <type>0</type>
           <selector>
           </selector>
@@ -692,7 +388,7 @@
           </remarks>
           <privilege>
             <id>270</id>
-            <name><![CDATA[权限组页面]]></name>
+            <name><![CDATA[鏉冮檺缁勯〉闈]></name>
             <type>1</type>
             <selector>/configure/pages/privileges/privileagegroup.aspx</selector>
             <remarks>
@@ -700,7 +396,7 @@
           </privilege>
           <privilege>
             <id>271</id>
-            <name><![CDATA[权限组查看ASHX]]></name>
+            <name><![CDATA[鏉冮檺缁勬煡鐪婣SHX]]></name>
             <type>2</type>
             <selector>/configure/services/privileges/privilegegrouplist.ashx</selector>
             <remarks>
@@ -709,7 +405,7 @@
           </privilege>
           <privilege>
             <id>272</id>
-            <name><![CDATA[权限组查看页面]]></name>
+            <name><![CDATA[鏉冮檺缁勬煡鐪嬮〉闈]></name>
             <type>1</type>
             <selector>/configure/pages/privileges/viewprivilegegroup.aspx</selector>
             <remarks>
@@ -718,7 +414,7 @@
         </privilege>
         <privilege>
           <id>273</id>
-          <name><![CDATA[权限组修改]]></name>
+          <name><![CDATA[鏉冮檺缁勪慨鏀筣]></name>
           <type>0</type>
           <selector>
           </selector>
@@ -726,7 +422,7 @@
           </remarks>
           <privilege>
             <id>274</id>
-            <name><![CDATA[权限组修改页面]]></name>
+            <name><![CDATA[鏉冮檺缁勪慨鏀归〉闈]></name>
             <type>1</type>
             <selector>/configure/pages/privileges/modiprivilegegroup.aspx</selector>
             <remarks>
@@ -734,7 +430,7 @@
           </privilege>
           <privilege>
             <id>275</id>
-            <name><![CDATA[权限组修改ASHX]]></name>
+            <name><![CDATA[鏉冮檺缁勪慨鏀笰SHX]]></name>
             <type>2</type>
             <selector>/configure/services/privileges/getprigrouponeormore.ashx</selector>
             <remarks>
@@ -743,7 +439,7 @@
           </privilege>
           <privilege>
             <id>276</id>
-            <name><![CDATA[权限组查看一条记录ASHX]]></name>
+            <name><![CDATA[鏉冮檺缁勬煡鐪嬩竴鏉¤褰旳SHX]]></name>
             <type>2</type>
             <selector>/configure/services/privileges/modiprigroup.ashx</selector>
             <remarks>
@@ -753,7 +449,7 @@
         </privilege>
         <privilege>
           <id>277</id>
-          <name><![CDATA[权限组新增]]></name>
+          <name><![CDATA[鏉冮檺缁勬柊澧瀅]></name>
           <type>0</type>
           <selector>
           </selector>
@@ -761,7 +457,7 @@
           </remarks>
           <privilege>
             <id>278</id>
-            <name><![CDATA[权限组新增页面]]></name>
+            <name><![CDATA[鏉冮檺缁勬柊澧為〉闈]></name>
             <type>1</type>
             <selector>/configure/pages/privileges/addprivilegegroup.aspx</selector>
             <remarks>
@@ -769,7 +465,7 @@
           </privilege>
           <privilege>
             <id>279</id>
-            <name><![CDATA[权限组新增ASHX]]></name>
+            <name><![CDATA[鏉冮檺缁勬柊澧濧SHX]]></name>
             <type>2</type>
             <selector>/configure/services/privileges/addprigroup.ashx</selector>
             <remarks>
@@ -779,7 +475,7 @@
         </privilege>
         <privilege>
           <id>280</id>
-          <name><![CDATA[权限组删除]]></name>
+          <name><![CDATA[鏉冮檺缁勫垹闄]></name>
           <type>0</type>
           <selector>
           </selector>
@@ -787,7 +483,7 @@
           </remarks>
           <privilege>
             <id>281</id>
-            <name><![CDATA[权限组删除]]></name>
+            <name><![CDATA[鏉冮檺缁勫垹闄]></name>
             <type>1</type>
             <selector>/configure/services/privileges/delprigroup.ashx</selector>
             <remarks>
@@ -796,7 +492,7 @@
         </privilege>
         <privilege>
           <id>282</id>
-          <name><![CDATA[权限组分配权限]]></name>
+          <name><![CDATA[鏉冮檺缁勫垎閰嶆潈闄怾]></name>
           <type>0</type>
           <selector>
           </selector>
@@ -804,7 +500,7 @@
           </remarks>
           <privilege>
             <id>283</id>
-            <name><![CDATA[权限组分配权限页面]]></name>
+            <name><![CDATA[鏉冮檺缁勫垎閰嶆潈闄愰〉闈]></name>
             <type>1</type>
             <selector>/configure/pages/privileges/assprivilege.aspx</selector>
             <remarks>
@@ -812,7 +508,7 @@
           </privilege>
           <privilege>
             <id>284</id>
-            <name><![CDATA[权限组分配权限]]></name>
+            <name><![CDATA[鏉冮檺缁勫垎閰嶆潈闄怾]></name>
             <type>1</type>
             <selector>/configure/services/privileges/assprivilege.ashx</selector>
             <remarks>
@@ -820,7 +516,7 @@
           </privilege>
           <privilege>
             <id>285</id>
-            <name><![CDATA[权限组重新分配权限]]></name>
+            <name><![CDATA[鏉冮檺缁勯噸鏂板垎閰嶆潈闄怾]></name>
             <type>1</type>
             <selector>/configure/services/privileges/reassprivilege.ashx</selector>
             <remarks>
@@ -828,7 +524,7 @@
           </privilege>
           <privilege>
             <id>1043</id>
-            <name><![CDATA[权限组重新分配广告权限]]></name>
+            <name><![CDATA[鏉冮檺缁勯噸鏂板垎閰嶅箍鍛婃潈闄怾]></name>
             <type>2</type>
             <selector>/configure/services/privileges/reassadprivilege.ashx</selector>
             <remarks>
@@ -837,7 +533,7 @@
           </privilege>
           <privilege>
             <id>1039</id>
-            <name><![CDATA[子系统查看ASHX]]></name>
+            <name><![CDATA[瀛愮郴缁熸煡鐪婣SHX]]></name>
             <type>2</type>
             <selector>/configure/services/privileges/systemlist.ashx</selector>
             <remarks>
@@ -846,7 +542,7 @@
           </privilege>
           <privilege>
             <id>1040</id>
-            <name><![CDATA[子系统权限查看]]></name>
+            <name><![CDATA[瀛愮郴缁熸潈闄愭煡鐪媇]></name>
             <type>2</type>
             <selector>/configure/pages/privileges/asssubprivilege.aspx</selector>
             <remarks>
@@ -855,7 +551,7 @@
           </privilege>
           <privilege>
             <id>1042</id>
-            <name><![CDATA[广告子系统权限查看]]></name>
+            <name><![CDATA[骞垮憡瀛愮郴缁熸潈闄愭煡鐪媇]></name>
             <type>2</type>
             <selector>/configure/pages/privileges/asssubadprivilege.aspx</selector>
             <remarks>
@@ -864,7 +560,7 @@
           </privilege>
           <privilege>
             <id>1044</id>
-            <name><![CDATA[权限组分配权限]]></name>
+            <name><![CDATA[鏉冮檺缁勫垎閰嶆潈闄怾]></name>
             <type>2</type>
             <selector>/configure/services/privileges/assadprivilege.ashx</selector>
             <remarks>
@@ -874,395 +570,5 @@
         </privilege>
       </privilege>
     </privilege>
-    <privilege>
-      <id>289</id>
-      <name><![CDATA[登录日志查询]]></name>
-      <type>0</type>
-      <selector>
-      </selector>
-      <remarks>
-      </remarks>
-      <privilege>
-        <id>290</id>
-        <name><![CDATA[查看登录日志]]></name>
-        <type>0</type>
-        <selector>
-        </selector>
-        <remarks>
-        </remarks>
-        <privilege>
-          <id>291</id>
-          <name><![CDATA[查看登录日志页面]]></name>
-          <type>1</type>
-          <selector>/pages/viewlogs/viewloginlogs.aspx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-        <privilege>
-          <id>292</id>
-          <name><![CDATA[查看登录日志ASHX]]></name>
-          <type>2</type>
-          <selector>/services/viewlogs/viewloginlogs.ashx</selector>
-          <remarks>
-            291
-          </remarks>
-        </privilege>
-      </privilege>
-    </privilege>
-    <privilege>
-      <id>798</id>
-      <name><![CDATA[操作日志查询]]></name>
-      <type>0</type>
-      <selector>
-      </selector>
-      <remarks>
-      </remarks>
-      <privilege>
-        <id>293</id>
-        <name><![CDATA[查看操作日志]]></name>
-        <type>0</type>
-        <selector>
-        </selector>
-        <remarks>
-        </remarks>
-        <privilege>
-          <id>294</id>
-          <name><![CDATA[查看操作日志页面]]></name>
-          <type>1</type>
-          <selector>/pages/viewlogs/viewoperlogs.aspx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-        <privilege>
-          <id>295</id>
-          <name><![CDATA[查看操作日志ASHX]]></name>
-          <type>2</type>
-          <selector>/services/viewlogs/viewoperlogs.ashx</selector>
-          <remarks>
-            294
-          </remarks>
-        </privilege>
-      </privilege>
-      <privilege>
-        <id>296</id>
-        <name><![CDATA[查看操作日志详细信息]]></name>
-        <type>0</type>
-        <selector>
-        </selector>
-        <remarks>
-        </remarks>
-        <privilege>
-          <id>297</id>
-          <name><![CDATA[查看操作日志详细信息页面]]></name>
-          <type>1</type>
-          <selector>/pages/viewlogs/viewoperlogsdetail.aspx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-        <privilege>
-          <id>298</id>
-          <name><![CDATA[查看操作日志详细信息ASHX]]></name>
-          <type>2</type>
-          <selector>/services/viewlogs/viewoperlogsdetail.ashx</selector>
-          <remarks>
-            297
-          </remarks>
-        </privilege>
-      </privilege>
-    </privilege>
   </privilege>
-
-  <privilege>
-    <id>1201</id>
-    <name><![CDATA[计费能力模块]]></name>
-    <type>0</type>
-    <selector>
-    </selector>
-    <remarks>
-    </remarks>
-    <privilege>
-      <id>1202</id>
-      <name><![CDATA[服务资费表查询]]></name>
-      <type>0</type>
-      <selector>
-      </selector>
-      <remarks>
-      </remarks>
-      <privilege>
-        <id>1203</id>
-        <name><![CDATA[服务资费表操作日志]]></name>
-        <type>0</type>
-        <selector>
-        </selector>
-        <remarks>
-        </remarks>
-        <privilege>
-          <id>1204</id>
-          <name><![CDATA[服务资费表操作日志页面]]></name>
-          <type>1</type>
-          <selector>/configure/pages/charging/charginglist.aspx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-        <privilege>
-          <id>1205</id>
-          <name><![CDATA[服务资费表操作日志ASHX]]></name>
-          <type>1</type>
-          <selector>/configure/pages/charging/editcharging.aspx</selector>
-          <remarks>
-
-          </remarks>
-        </privilege>
-        <privilege>
-          <id>1209</id>
-          <name><![CDATA[1205账号修改ASHX]]></name>
-          <type>2</type>
-          <selector>/configure/services/charging/chargingView.ashx</selector>
-          <remarks>
-            312
-          </remarks>
-        </privilege>
-        <privilege>
-          <id>1210</id>
-          <name><![CDATA[1205账号修改ASHX]]></name>
-          <type>2</type>
-          <selector>/configure/services/charging/editcharging.ashx</selector>
-          <remarks>
-
-          </remarks>
-        </privilege>
-        <privilege>
-          <id>1211</id>
-          <name><![CDATA[删除服务项]]></name>
-          <type>2</type>
-          <selector>/configure/services/charging/deletecharging.ashx</selector>
-          <remarks>
-
-          </remarks>
-        </privilege>
-
-        <privilege>
-          <id>1212</id>
-          <name><![CDATA[新建服务项1]]></name>
-          <type>1</type>
-          <selector>/configure/pages/charging/addcharging.aspx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-        <privilege>
-          <id>1213</id>
-          <name><![CDATA[新建服务项2]]></name>
-          <type>2</type>
-          <selector>/configure/services/charging/addcharging.ashx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-        <privilege>
-          <id>1214</id>
-          <name><![CDATA[服务接入规则表页面]]></name>
-          <type>1</type>
-          <selector>/configure/pages/charging/accessruleslist.aspx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-
-        <privilege>
-          <id>1215</id>
-          <name><![CDATA[新增服务接入规则表页面]]></name>
-          <type>1</type>
-          <selector>/configure/pages/charging/addaccessrules.aspx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-        <privilege>
-          <id>1216</id>
-          <name><![CDATA[SelectCharging]]></name>
-          <type>2</type>
-          <selector>/configure/pages/charging/SelectCharging.ashx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-        <privilege>
-          <id>1217</id>
-          <name><![CDATA[accessruleslist]]></name>
-          <type>2</type>
-          <selector>/configure/pages/charging/accessruleslist.ashx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-        <privilege>
-          <id>1218</id>
-          <name><![CDATA[addaccessrules]]></name>
-          <type>2</type>
-          <selector>/configure/pages/charging/addaccessrules.ashx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-        <privilege>
-          <id>1222</id>
-          <name><![CDATA[修改服务接入规则表页面]]></name>
-          <type>1</type>
-          <selector>/configure/pages/charging/editaccessrules.aspx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-        <privilege>
-          <id>1219</id>
-          <name><![CDATA[editaccessrules]]></name>
-          <type>2</type>
-          <selector>/configure/services/charging/editaccessrules.ashx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-        <privilege>
-          <id>1220</id>
-          <name><![CDATA[accessrulesview]]></name>
-          <type>2</type>
-          <selector>/configure/services/charging/accessrulesview.ashx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-        <privilege>
-          <id>1221</id>
-          <name><![CDATA[deleteaccessrules]]></name>
-          <type>2</type>
-          <selector>/configure/services/charging/deleteaccessrules.ashx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-
-        <privilege>
-          <id>1230</id>
-          <name><![CDATA[服务访问日志详细信息页面]]></name>
-          <type>1</type>
-          <selector>/configure/pages/charging/accessloglist.aspx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-        <privilege>
-          <id>1231</id>
-          <name><![CDATA[服务访问日志详细信息ASHX]]></name>
-          <type>2</type>
-          <selector>/configure/services/charging/accessloglist.ashx</selector>
-          <remarks>
-            2979
-          </remarks>
-        </privilege>
-        <privilege>
-          <id>1233</id>
-          <name><![CDATA[服务接入统计详细信息页面]]></name>
-          <type>1</type>
-          <selector>/configure/pages/charging/accessstatisticslist.aspx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-        <privilege>
-          <id>1234</id>
-          <name><![CDATA[服务台账详细信息页面]]></name>
-          <type>1</type>
-          <selector>/configure/pages/charging/standingbook.aspx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-        <privilege>
-          <id>1235</id>
-          <name><![CDATA[服务台账查看编辑页面]]></name>
-          <type>1</type>
-          <selector>/configure/pages/charging/editstandingbook.aspx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-      </privilege>
-      <privilege>
-        <id>1206</id>
-        <name><![CDATA[服务资费表操作日志详细信息]]></name>
-        <type>0</type>
-        <selector>
-        </selector>
-        <remarks>
-        </remarks>
-        <privilege>
-          <id>1207</id>
-          <name><![CDATA[服务资费表详细信息页面]]></name>
-          <type>1</type>
-          <selector>/pages/viewlogs/viewoperlogsdetail.aspx</selector>
-          <remarks>
-          </remarks>
-        </privilege>
-        <privilege>
-          <id>1208</id>
-          <name><![CDATA[服务资费表详细信息ASHX]]></name>
-          <type>2</type>
-          <selector>/services/viewlogs/viewoperlogsdetail.ashx</selector>
-          <remarks>
-            2979
-          </remarks>
-        </privilege>
-      </privilege>
-    </privilege>
-    <privilege>
-      <id>1245</id>
-      <name><![CDATA[统计沙盘表操作]]></name>
-      <type>0</type>
-      <selector></selector>
-      <remarks>
-      </remarks>
-      <privilege>
-        <id>1246</id>
-        <name><![CDATA[统计沙盘表页面]]></name>
-        <type>1</type>
-        <selector>/configure/pages/charging/statisticpan.aspx</selector>
-        <remarks>
-        </remarks>
-      </privilege>
-    </privilege>
-    <privilege>
-      <id>1247</id>
-      <name><![CDATA[计费业务监控表操作]]></name>
-      <type>0</type>
-      <selector></selector>
-      <remarks>
-      </remarks>
-      <privilege>
-        <id>1248</id>
-        <name><![CDATA[计费业务监控表页面]]></name>
-        <type>1</type>
-        <selector>/configure/pages/charging/chargingmonitor.aspx</selector>
-        <remarks>
-        </remarks>
-      </privilege>
-    </privilege>
-    <privilege>
-      <id>1249</id>
-      <name><![CDATA[计费业务流程表操作]]></name>
-      <type>0</type>
-      <selector></selector>
-      <remarks>
-      </remarks>
-      <privilege>
-        <id>1250</id>
-        <name><![CDATA[计费业务流程表页面]]></name>
-        <type>1</type>
-        <selector>/configure/pages/charging/chargingflow.aspx</selector>
-        <remarks>
-        </remarks>
-      </privilege>
-    </privilege>
-    <privilege>
-      <id>1251</id>
-      <name><![CDATA[服务台管理]]></name>
-      <type>0</type>
-      <selector></selector>
-      <remarks>
-      </remarks>
-      <privilege>
-        <id>1252</id>
-        <name><![CDATA[服务台管理页面]]></name>
-        <type>1</type>
-        <selector>/configure/pages/charging/servicemanage.aspx</selector>
-        <remarks>
-        </remarks>
-      </privilege>
-    </privilege>
-  </privilege>
-</privilege>
+</privileges>

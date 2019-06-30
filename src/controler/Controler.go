@@ -159,3 +159,23 @@ func Golay() http.Handler {
 	}
 	return http.HandlerFunc(fn)
 }
+
+func GetConfigPrivileges() http.Handler {
+	fn := func(response http.ResponseWriter, req *http.Request) {
+		resp := core.ResponseBase{}
+		err, treeData := core.GetTreePrivileges()
+		if err != nil {
+			core.Logger(err.Error())
+			resp.StatusCode = 500
+		} else {
+			resp.StatusCode = 200
+			resp.Data = treeData
+		}
+		respBytes, err := json.Marshal(&resp)
+		if err != nil {
+			core.Logger(err.Error())
+		}
+		response.Write(respBytes)
+	}
+	return http.HandlerFunc(fn)
+}

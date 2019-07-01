@@ -12,9 +12,7 @@ layui.define(['tree'],function (exports) {
         beforeSend:function(xhr){
         },
         success: function (data, textStatus) {
-
             var treeDatas = [];
-
             function SetTree(PrivilegeData) {
                 if(PrivilegeData==null){
                     return null
@@ -29,10 +27,8 @@ layui.define(['tree'],function (exports) {
                         var cdata = SetTree(tchild);
                         tPrivilege.children.push(cdata);
                     }
-                }else{
-                    return tPrivilege;
                 }
-
+                return tPrivilege;
             }
             if(data==null||data.StatusCode!=200){
                 layui.msg("获取出错");
@@ -45,8 +41,10 @@ layui.define(['tree'],function (exports) {
             }
             //渲染
             tree.render({
-                elem: '#testTree'  //绑定元素
-                ,data:treeDatas
+                //绑定元素
+                elem: '#testTree',
+                data:treeDatas,
+                showCheckbox: true
             });
 
         },

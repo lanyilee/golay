@@ -46,12 +46,15 @@ layui.define(['cookie'],function(exports){
                     if(data!=null && data.StatusCode==200){
                         flag = data.Data;
                     }else{
-                        layer.msg(data.Message);
+                        layer.alert(data.Message,{icon: 3, title:'提示'},function () {
+                            location.href = obj.getCurPageRelativePathPrefix() +"/html/login.html";
+                        });
                     }
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    layer.msg("你没有相关权限");
-                    return false;
+                    layer.alert("你没有权限",{icon: 3, title:'提示'},function () {
+                        location.href = obj.getCurPageRelativePathPrefix() +"/html/login.html";
+                    });
                 }
             });
             return flag;

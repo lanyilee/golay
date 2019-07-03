@@ -2,16 +2,25 @@ package main
 
 import (
 	"controler"
-	"core"
 	"log"
 	"net/http"
 )
 
 func main() {
-	err, _ := core.GetXmlPrivileges()
-	core.ErrHandler(err)
+	//confUrl := "./src/config/rbac_model.conf"
+	//csvUrl := "./src/config/basic_policy.csv"
+	//e := casbin.NewEnforcer(confUrl, csvUrl)
+	////sub := "alice"
+	////obj := "data1"
+	////act := "read"
+	//if e.Enforce("alice","data1","read")==true{
+	//	println(12)
+	//	return
+	//}
+	//println(false)
+	//return
 	HandleRouter()
-	err = http.ListenAndServe(":8888", nil)
+	err := http.ListenAndServe(":8888", nil)
 	if err != nil {
 		log.Panic(err)
 	}

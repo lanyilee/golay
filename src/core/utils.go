@@ -10,6 +10,7 @@ import (
 	"math/rand"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"strconv"
 	"strings"
 	"time"
@@ -335,4 +336,19 @@ func GenerateRangeNum(min, max int) int {
 	randNum := r.Intn(max-min) + min
 	time.Sleep(time.Millisecond * 1)
 	return randNum
+}
+
+/*获取当前文件执行的路径*/
+func GetCurExecPath() string {
+	file, _ := exec.LookPath(os.Args[0])
+	//得到全路径，比如在windows下E:\\golang\\test\\a.exe
+	path, _ := filepath.Abs(file)
+	rst := filepath.Dir(path)
+	return rst
+}
+
+/*执行用户当前所在路径*/
+func Getwd() string {
+	wd, _ := os.Getwd()
+	return wd
 }

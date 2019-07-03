@@ -136,12 +136,19 @@ func Privilege() http.Handler {
 				path := string(pathByte[:])
 				println(path)
 				//通过user获取相应权限
-				bo, err := core.PathExistPrivilege(path)
+				bo, err := core.PathExistPrivilege(loginUser.Username, path)
 				if err != nil {
 					core.Logger(err.Error())
 				}
-				resp.StatusCode = 200
-				resp.Data = bo
+				if bo {
+					resp.StatusCode = 200
+					resp.Data = bo
+				} else {
+					resp.StatusCode = 402
+					resp.Message = "你没有相关权限"
+					resp.Data = bo
+				}
+
 			}
 		}
 		respBytes, err := json.Marshal(&resp)

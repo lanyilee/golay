@@ -20,10 +20,7 @@
                 if(aData.target.attributes["lay-href"]!=null){
                     var targetHtml = aData.target.attributes["lay-href"].value;
                     var targetUrl = jqUtils.getCurPageRelativePathPrefix()+ targetHtml;
-                    var bool = jqUtils.IsEnoughPrivilege(targetHtml)
-                    if (bool != true){
-                        location.href = jqUtils.getCurPageRelativePathPrefix() +"/html/login.html";
-                    }
+                    jqUtils.IsEnoughPrivilege(targetHtml)
                     var appendHtml = jqUtils.GetHtml(targetUrl);
                     $("#layBody").html(appendHtml);
                 }

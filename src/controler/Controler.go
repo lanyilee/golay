@@ -186,3 +186,59 @@ func GetConfigPrivileges() http.Handler {
 	}
 	return http.HandlerFunc(fn)
 }
+
+//获取菜单栏
+func GetMenu() http.Handler {
+	fn := func(response http.ResponseWriter, req *http.Request) {
+		user, resp, err := GetUser(req)
+		if err != nil {
+			core.Logger(err.Error())
+		} else if user.Username == "" {
+			core.Logger("GetMenu:can't not found loginUser")
+		} else {
+			//通过用户获取用户相应菜单
+			menuList, err := core.GetMenuByUser(user)
+			if err != nil {
+				resp.StatusCode = 500
+				resp.Message = err.Error()
+			} else {
+				resp.StatusCode = 200
+				resp.Data = menuList
+			}
+		}
+		respBytes, err := json.Marshal(&resp)
+		if err != nil {
+			core.Logger(err.Error())
+		}
+		response.Write(respBytes)
+
+	}
+	return http.HandlerFunc(fn)
+}
+
+//获取登录用户信息
+func GetUser(req *http.Request) (core.TUser, core.ResponseBase, error) {
+	control := InitControler()
+	resp := core.ResponseBase{}
+	user := core.TUser{}
+	//header
+	token := req.Header.Get("GolayToken")
+	if token == "" {
+		resp.Message = "您尚未登录或登录已过期"
+		resp.StatusCode = 402
+		return user, resp, nil
+	} else {
+		loginuser, err := core.GetUserByToken(token, control.redisCli)
+		if err != nil {
+			return user, resp, err
+		}
+		if loginuser == nil {
+			resp.Message = "您尚未登录或登录已过期"
+			resp.StatusCode = 402
+		} else {
+			user = *loginuser
+		}
+	}
+	return user, resp, nil
+
+}

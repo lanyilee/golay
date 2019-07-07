@@ -11,10 +11,12 @@
         layui.config({
             base: '../js/' //指定 layuiAdmin 项目路径
             ,version: '1.2.1'
-        }).use(['cookie','form','jqUtils','element'], function(){
+        }).use(['cookie','form','jqUtils','element','index'], function(){
             var form = layui.form,
                     element = layui.element,
+                    index = layui.index,
                     jqUtils = layui.jqUtils;
+
             var $ = layui.$;
             $("a").click(function (aData) {
                 if(aData.target.attributes["lay-href"]!=null){

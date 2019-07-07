@@ -33,7 +33,7 @@
           <id>9</id>
           <name><![CDATA[客户查询页面]]></name>
           <type>1</type>
-          <selector>/configure/pages/company/companylist.aspx</selector>
+          <selector>/html/homepage.html</selector>
           <remarks>
           </remarks>
         </privilege>
@@ -41,7 +41,7 @@
           <id>10</id>
           <name><![CDATA[客户查询ASHX]]></name>
           <type>2</type>
-          <selector>/configure/services/company/companylist.ashx</selector>
+          <selector>/html/homepage.do</selector>
           <remarks>
             9
           </remarks>
@@ -59,7 +59,7 @@
           <id>12</id>
           <name><![CDATA[客户新建页面]]></name>
           <type>1</type>
-          <selector>/configure/pages/company/addcompany.aspx</selector>
+          <selector>/html/homepage2.html</selector>
           <remarks>
           </remarks>
         </privilege>
@@ -85,7 +85,7 @@
           <id>15</id>
           <name><![CDATA[客户修改页面]]></name>
           <type>1</type>
-          <selector>/configure/pages/company/editcompany.aspx</selector>
+          <selector>/html/privileges.html</selector>
           <remarks>
           </remarks>
         </privilege>

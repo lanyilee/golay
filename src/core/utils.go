@@ -352,3 +352,14 @@ func Getwd() string {
 	wd, _ := os.Getwd()
 	return wd
 }
+
+//自定义错误
+type MyError struct {
+	Op         string
+	CreateTime string
+	Message    string
+}
+
+func (err *MyError) Error() string {
+	return err.CreateTime + ":" + err.Message
+}

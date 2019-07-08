@@ -27,7 +27,7 @@ layui.define(['cookie'],function(exports){
             return returnHtml;
         },
         IsEnoughPrivilege:function(url){
-            var flag = false;
+            var flagObj = new Object();
             $.ajax({
                 type: "post",
                 data: url,
@@ -38,17 +38,21 @@ layui.define(['cookie'],function(exports){
                 beforeSend:function(xhr){
                     var golayToken = cookie.getCookie("golay_token");
                     if(golayToken==null){
-                        return false;
+                        flagObj.flag = false;
+                        return flagObj;
                     }
                     xhr.setRequestHeader("GolayToken", golayToken);
                 },
                 success: function (data, textStatus) {
                     if(data!=null && data.StatusCode==200){
-                        flag = data.Data;
-                    }else{
-                        layer.alert(data.Message,{icon: 3, title:'提示'},function () {
-                            location.href = obj.getCurPageRelativePathPrefix() +"/html/login.html";
-                        });
+                        flagObj.flag = data.Data;
+                    }else if(data!=null && data.StatusCode==402){
+                        flagObj.message = "登录已过期"
+                        flagObj.href = obj.getCurPageRelativePathPrefix() +"/html/login.html";
+                    }
+                    else {
+                        flagObj.message = "你没有相关权限"
+                        flagObj.href = obj.getCurPageRelativePathPrefix() +"/html/index.html";
                     }
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -57,7 +61,7 @@ layui.define(['cookie'],function(exports){
                     });
                 }
             });
-            return flag;
+            return flagObj;
         }
     }
     exports('jqUtils',obj);

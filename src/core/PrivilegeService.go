@@ -2,6 +2,11 @@ package core
 
 import "github.com/casbin/casbin"
 
+type Menu struct {
+	Title string
+	Name  []string
+}
+
 func NewCasbinEnforcer() *casbin.Enforcer {
 	confUrl := "./src/config/rbac_model.conf"
 	csvUrl := "./src/config/basic_policy.csv"
@@ -24,7 +29,7 @@ func PathExistPrivilege(loginUser string, path string) (bool, error) {
 
 }
 
-func GetMenuByUser(user TUser) ([]string, error) {
+func GetMenuByUser(user TUser) ([]LeftMenu, error) {
 	//获取user所有权限
 	e := NewCasbinEnforcer()
 	//list:=e.GetPermissionsForUser(user.Username)
@@ -35,15 +40,39 @@ func GetMenuByUser(user TUser) ([]string, error) {
 		Logger(err.Error())
 		return nil, err
 	}
-	err, pList := GetTreePrivileges()
-	resultList := [][]string{}
+	err, pList := GetTreeLeftMenu()
+	resultList := []LeftMenu{}
 	for _, p := range pList {
-		for _, mp := range list {
-			if p.Selector == mp[1] {
-				resultList = append(resultList, p.Selector)
+		menu := LeftMenu{}
+		menu.Name = p.Name
+		if p.LeftMenu != nil {
+			for _, a := range p.LeftMenu {
+				for _, b := range list {
+					if a.Redirecturl == b[1] {
+						menu.LeftMenu = append(menu.LeftMenu, a)
+						break
+					}
+				}
 			}
+		}
+		if menu.LeftMenu != nil {
+			resultList = append(resultList, menu)
 		}
 	}
 	println(len(resultList))
 	return resultList, nil
+}
+
+//递归查询页面权限
+func (menu *Menu) FindShowHtml(p Privilege) {
+	if len(p.Privilege) > 0 {
+		for _, secondP := range p.Privilege {
+			menu.FindShowHtml(secondP)
+		}
+	} else {
+		if p.Type == 1 {
+			menu.Name = append(menu.Name, p.Name)
+		}
+		return
+	}
 }

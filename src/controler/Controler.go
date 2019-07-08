@@ -144,7 +144,7 @@ func Privilege() http.Handler {
 					resp.StatusCode = 200
 					resp.Data = bo
 				} else {
-					resp.StatusCode = 402
+					resp.StatusCode = 403
 					resp.Message = "你没有相关权限"
 					resp.Data = bo
 				}

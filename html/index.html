@@ -11,10 +11,10 @@
         layui.config({
             base: '../js/' //指定 layuiAdmin 项目路径
             ,version: '1.2.1'
-        }).use(['cookie','form','jqUtils','element','index'], function(){
+        }).use(['cookie','form','jqUtils','element'], function(){
             var form = layui.form,
                     element = layui.element,
-                    index = layui.index,
+                    // index = layui.index,
                     jqUtils = layui.jqUtils;
 
             var $ = layui.$;
@@ -22,7 +22,11 @@
                 if(aData.target.attributes["lay-href"]!=null){
                     var targetHtml = aData.target.attributes["lay-href"].value;
                     var targetUrl = jqUtils.getCurPageRelativePathPrefix()+ targetHtml;
-                    jqUtils.IsEnoughPrivilege(targetHtml)
+                    var flagObj = jqUtils.IsEnoughPrivilege(targetHtml);
+                    if(!flagObj.flag)
+                        layer.alert(flagObj.message,{icon: 3, title:'提示'},function () {
+                            location.href = flagObj.href;
+                        });
                     var appendHtml = jqUtils.GetHtml(targetUrl);
                     $("#layBody").html(appendHtml);
                 }

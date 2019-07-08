@@ -28,6 +28,16 @@ type PrivilegeTreeJson struct {
 	Selector string `json:"href"`
 }
 
+type LeftMenuResult struct {
+	Leftmenu xml.Name   `xml:"leftmenu"`
+	LeftMenu []LeftMenu `xml:"menu"`
+}
+type LeftMenu struct {
+	Name        string     `xml:"name"`
+	Redirecturl string     `xml:"redirecturl"`
+	LeftMenu    []LeftMenu `xml:"menu"`
+}
+
 func GetXmlPrivileges() (error, string) {
 	content, err := ioutil.ReadFile("./src/config/Privileges.xml")
 	if err != nil {
@@ -51,6 +61,7 @@ func GetXmlPrivileges() (error, string) {
 
 }
 
+//获取权限树
 func GetTreePrivileges() (error, []Privilege) {
 	content, err := ioutil.ReadFile("./src/config/Privileges.xml")
 	if err != nil {
@@ -66,6 +77,23 @@ func GetTreePrivileges() (error, []Privilege) {
 
 	return nil, result.Privilege
 
+}
+
+//获取左边菜单树
+func GetTreeLeftMenu() (error, []LeftMenu) {
+	content, err := ioutil.ReadFile("./src/config/LeftMenu.xml")
+	if err != nil {
+		return err, nil
+	}
+
+	// xml 解析到result的结构中
+	var result LeftMenuResult
+	err = xml.Unmarshal(content, &result)
+	if err != nil {
+		return err, nil
+	}
+
+	return nil, result.LeftMenu
 }
 
 func ErrHandler(err error) {

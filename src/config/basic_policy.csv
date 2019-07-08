@@ -6,3 +6,5 @@ p, admin, /html/homepage2.html, read
 p, lanyi, /html/index.html, read
 p, lanyi, /html/index.html, read
 p, lanyi, /html/homepage2.html, read
+p,	admin,	/html/privileges.html,	read
+p,	admin,	/html/privileges.html, write

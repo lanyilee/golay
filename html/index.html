@@ -11,10 +11,10 @@
         layui.config({
             base: '../js/' //指定 layuiAdmin 项目路径
             ,version: '1.2.1'
-        }).use(['cookie','form','jqUtils','element'], function(){
+        }).use(['cookie','form','jqUtils','element','index'], function(){
             var form = layui.form,
                     element = layui.element,
-                    // index = layui.index,
+                    index = layui.index,
                     jqUtils = layui.jqUtils;
 
             var $ = layui.$;
@@ -35,10 +35,6 @@
                 }
             })
         })
-        // layui.use('element', function(){
-        //     var element = layui.element;
-        //     var $ = layui.$;
-        // });
     </script>
 </head>
 <body class="layui-layout-body">
@@ -77,7 +73,7 @@
     <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll">
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-            <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+            <ul class="layui-nav layui-nav-tree"   lay-filter="test" id="LeftMenuUL">
                 <li class="layui-nav-item layui-nav-itemed">
                     <a class="" href="javascript:;">所有商品</a>
                     <dl class="layui-nav-child">

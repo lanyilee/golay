@@ -32,7 +32,7 @@ func Login(db *xorm.Engine, username string, password string, cli *redis.Client)
 		Logger(err.Error())
 	}
 	userStr := string(userBytes[:])
-	_, err = cli.Set(username, userStr, time.Minute*3).Result()
+	_, err = cli.Set(username, userStr, time.Minute*60).Result()
 	if err != nil {
 		Logger(err.Error())
 	}
@@ -68,7 +68,7 @@ func CheckUserInRedis(cli *redis.Client, username string, password string) (resp
 }
 
 func SaveToken(cli *redis.Client, token string, username string) error {
-	_, err := cli.Set(token, username, time.Minute*20).Result()
+	_, err := cli.Set(token, username, time.Minute*60).Result()
 	if err != nil {
 		return err
 	}

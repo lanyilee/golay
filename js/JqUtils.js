@@ -62,6 +62,31 @@ layui.define(['cookie'],function(exports){
                 }
             });
             return flagObj;
+        },
+        //
+        Post(url){
+            $.ajax({
+                type: "post",
+                data: "",
+                async:false,
+                timeout:300000,
+                url: url,
+                dataType: "json",
+                beforeSend:function(xhr){
+                    var golayToken = cookie.getCookie("golay_token");
+                    if(golayToken==null){
+                        location.href = obj.getCurPageRelativePathPrefix()+"/html/login.html";
+                        return false;
+                    }
+                    xhr.setRequestHeader("GolayToken", golayToken);
+                },
+                success: function (data, textStatus) {
+                    location.href = obj.getCurPageRelativePathPrefix()+"/html/login.html";
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    location.href = obj.getCurPageRelativePathPrefix()+"/html/login.html";
+                }
+            });
         }
     }
     exports('jqUtils',obj);

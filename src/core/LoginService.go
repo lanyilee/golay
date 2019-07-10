@@ -107,3 +107,24 @@ func GetUserByName(db *xorm.Engine, username string) (TUser, error) {
 	}
 	return tUser, nil
 }
+
+//登出
+func Logout(db *xorm.Engine, cli *redis.Client, user *TUser, token string) error {
+	//更新到数据库
+	user.Lastlogintime = time.Now()
+	_, err := db.Id(user.Id).Update(user)
+	if err != nil {
+		return err
+	}
+	//清redis该用户数据
+	_, err = cli.Del(user.Username).Result()
+	if err != nil {
+		return err
+	}
+	//清redis该用户token
+	_, err = cli.Del(token).Result()
+	if err != nil {
+		return err
+	}
+	return nil
+}

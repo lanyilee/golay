@@ -36,6 +36,7 @@ layui.define(['layer','cookie','jqUtils'],function (exports) {
                     }
                 })
                 $("#LeftMenuUL").html(appendHtml);
+                $("#LoginRealName").text(data.Message);
                 layui.use('element', function() {
                     var element = layui.element;
                     element.init();

@@ -32,4 +32,5 @@ func HandleRouter() {
 	http.Handle("/Privilege.do", controler.Privilege())
 
 	http.Handle("/GetConfigPrivileges.do", controler.GetConfigPrivileges())
+	http.Handle("/Logout.do", controler.Logout())
 }

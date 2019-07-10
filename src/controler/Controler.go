@@ -204,6 +204,7 @@ func GetMenu() http.Handler {
 			} else {
 				resp.StatusCode = 200
 				resp.Data = menuList
+				resp.Message = user.Realname
 			}
 		}
 		respBytes, err := json.Marshal(&resp)
@@ -241,4 +242,31 @@ func GetUser(req *http.Request) (core.TUser, core.ResponseBase, error) {
 	}
 	return user, resp, nil
 
+}
+
+//退出登录
+func Logout() http.Handler {
+	fn := func(response http.ResponseWriter, req *http.Request) {
+		user, resp, err := GetUser(req)
+		if err != nil {
+			core.Logger(err.Error())
+		} else if user.Username == "" {
+			core.Logger("Logout:can't not found loginUser")
+		} else {
+			control := InitControler()
+			db := core.CreatEngine(control.config)
+			token := req.Header.Get("GolayToken")
+			err = core.Logout(db, control.redisCli, &user, token)
+			if err != nil {
+				core.Logger(err.Error())
+			}
+		}
+		respBytes, err := json.Marshal(resp)
+		if err != nil {
+			core.Logger(err.Error())
+		}
+		core.Logger(user.Username + ":退出登录")
+		response.Write(respBytes)
+	}
+	return http.HandlerFunc(fn)
 }

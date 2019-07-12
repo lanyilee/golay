@@ -9,9 +9,9 @@ import (
 
 func NewClientZero(config Config) (*redis.Client, error) {
 	client := redis.NewClient(&redis.Options{
-		Addr: config.RedisIP,
-		//Password:     config.RedisPwd, // no password set
-		DB:           0, // use default DB
+		Addr:         config.RedisIP,
+		Password:     config.RedisPwd, // no password set
+		DB:           0,               // use default DB
 		DialTimeout:  180 * time.Second,
 		ReadTimeout:  180 * time.Second,
 		WriteTimeout: 180 * time.Second,
